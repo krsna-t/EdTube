@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navigation from "./components/Navigation";
@@ -48,14 +50,17 @@ const Home = () => {
 
   // Handle video URL from navigation
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    const hash = window.location.hash;
+    const params = new URLSearchParams(hash.split('?')[1]);
     const videoId = params.get('video');
+    
     if (videoId) {
       setEmbedUrl(`https://www.youtube.com/embed/${videoId}`);
     } else {
-      setEmbedUrl(""); // Clear the embed URL if no video ID is present
+      setEmbedUrl("");
     }
-  }, [window.location.search]);
+  }, [window.location.hash]);
+  
 
   // Pomodoro States
   const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
