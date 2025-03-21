@@ -698,8 +698,7 @@ body, html {
 
 /* About Page Styles */
 .about-page {
-  margin-top: 0;
-  padding-top: 800px !important;
+  padding-top: 100px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
 }
@@ -786,8 +785,7 @@ body, html {
 
 /* Resources Page Styles */
 .resources-page {
-  margin-top: 0 !important;
-  padding-top: 1400px !important;
+  padding-top: 100px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
   position: relative;
@@ -884,26 +882,30 @@ body, html {
 
 /* Responsive adjustments for resources page */
 @media (max-width: 1200px) {
+  .about-page,
   .resources-page {
-    padding-top: 1400px !important;
+    padding-top: 110px !important;
   }
 }
 
 @media (max-width: 992px) {
+  .about-page,
   .resources-page {
-    padding-top: 1500px !important;
+    padding-top: 120px !important;
   }
 }
 
 @media (max-width: 768px) {
+  .about-page,
   .resources-page {
-    padding-top: 1600px !important;
+    padding-top: 130px !important;
   }
 }
 
 @media (max-width: 576px) {
+  .about-page,
   .resources-page {
-    padding-top: 1700px !important;
+    padding-top: 140px !important;
   }
 }
 
