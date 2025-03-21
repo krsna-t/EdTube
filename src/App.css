@@ -198,7 +198,7 @@ body, html {
 
 /* Main Content Layout */
 .main-content {
-  margin-top: 70px !important;
+  margin-top: 40px !important;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -538,7 +538,7 @@ body, html {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .main-content {
-    margin-top: 80px !important;
+    margin-top: 45px !important;
   }
   
   .content-wrapper {
@@ -556,7 +556,7 @@ body, html {
 
 @media (max-width: 992px) {
   .main-content {
-    margin-top: 90px !important;
+    margin-top: 50px !important;
   }
   
   .content-wrapper {
@@ -574,7 +574,7 @@ body, html {
 
 @media (max-width: 768px) {
   .main-content {
-    margin-top: 100px !important;
+    margin-top: 55px !important;
   }
   
   .content-wrapper {
@@ -592,7 +592,7 @@ body, html {
 
 @media (max-width: 576px) {
   .main-content {
-    margin-top: 110px !important;
+    margin-top: 60px !important;
   }
   
   .content-wrapper {
@@ -1332,7 +1332,7 @@ textarea:focus {
 
 /* Home Page */
 .home-page {
-  padding-top: 250px;
+  padding-top: 100px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
 }
