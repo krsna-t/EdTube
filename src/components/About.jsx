@@ -53,7 +53,9 @@ const About = () => {
               <div className="card-body">
                 <h2 className="card-title h4">Our Story</h2>
                 <p className="card-text">
-                  EdTube was born from a simple observation: students often struggle to maintain focus while learning from online resources. We set out to create a solution that would help students stay engaged and productive while studying with YouTube videos.
+                  EdTube exists because, let’s be real—I start a YouTube lecture, and next thing I know, I’m deep into a ‘Sydney Sweeney’s Best Looks’ montage or a ‘Megan Fox Being Iconic’ compilation. That’s when I realized... yeah, this ain't studying. So, I built a tool to keep myself (and, let’s be honest, everyone else) actually learning instead of accidentally becoming a pop culture expert.
+
+                  Now, EdTube keeps evolving—unlike my attention span—powered by user feedback and real research (not just Wikipedia at 2 AM). The goal? Less ‘Where is Megan Fox now?’ and more ‘Oh damn, I actually learned something.
                 </p>
                 <p className="card-text">
                   Today, EdTube continues to evolve, incorporating user feedback and the latest educational research to provide the best possible learning experience.
