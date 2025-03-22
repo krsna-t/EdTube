@@ -698,7 +698,7 @@ body, html {
 
 /* About Page Styles */
 .about-page {
-  padding-top: 80px !important;
+  padding-top: 60px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
 }
@@ -785,7 +785,7 @@ body, html {
 
 /* Resources Page Styles */
 .resources-page {
-  padding-top: 80px !important;
+  padding-top: 60px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
   position: relative;
@@ -884,28 +884,28 @@ body, html {
 @media (max-width: 1200px) {
   .about-page,
   .resources-page {
-    padding-top: 90px !important;
+    padding-top: 65px !important;
   }
 }
 
 @media (max-width: 992px) {
   .about-page,
   .resources-page {
-    padding-top: 100px !important;
+    padding-top: 70px !important;
   }
 }
 
 @media (max-width: 768px) {
   .about-page,
   .resources-page {
-    padding-top: 110px !important;
+    padding-top: 75px !important;
   }
 }
 
 @media (max-width: 576px) {
   .about-page,
   .resources-page {
-    padding-top: 120px !important;
+    padding-top: 80px !important;
   }
 }
 
@@ -1205,8 +1205,8 @@ textarea:focus {
 
 /* Contact Page Styles */
 .contact-page {
+  padding-top: 60px !important;
   min-height: 100vh;
-  padding-top: 4rem;
   background-color: var(--bg-primary);
 }
 
@@ -1334,7 +1334,7 @@ textarea:focus {
 
 /* Home Page */
 .home-page {
-  padding-top: 100px !important;
+  padding-top: 60px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
 }
