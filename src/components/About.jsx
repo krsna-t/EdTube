@@ -12,7 +12,8 @@ const About = () => {
               <div className="card-body">
                 <h2 className="card-title h4">Our Mission</h2>
                 <p className="card-text">
-                  EdTube is dedicated to creating an optimal learning environment that combines the power of YouTube educational content with proven study techniques. We believe in making learning more engaging, productive, and accessible to everyone.
+                EdTube exists because let’s be honest—one moment, you’re watching a physics lecture, and the next, you’re deep into "Salman Khan ki gaadi kaun chala raha tha?" conspiracy theories. Start with calculus, end up debating internet mysteries—classic.
+                So yeah, I built this.
                 </p>
               </div>
             </div>
