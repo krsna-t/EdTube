@@ -1,6 +1,6 @@
 /* Navigation Styles */
 .navbar {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   position: fixed;
@@ -9,7 +9,7 @@
   right: 0;
   z-index: 1000;
   height: auto;
-  min-height: 70px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   backdrop-filter: blur(10px);
@@ -20,7 +20,8 @@
 .navbar .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 1rem;
+  width: 100%;
 }
 
 .navbar-content {
@@ -28,24 +29,26 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 2rem;
+  gap: 1rem;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .navbar-brand {
   font-weight: 800;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   background: linear-gradient(135deg, var(--accent-color) 0%, #2196F3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   letter-spacing: -0.5px;
   transition: transform 0.3s ease;
   display: flex;
@@ -68,11 +71,14 @@
   gap: 0.5rem;
   align-items: center;
   position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
 }
 
 .search-form .form-control {
-  width: 300px;
-  height: 42px;
+  width: 100%;
+  height: 40px;
   padding: 0.5rem 1rem;
   font-size: 0.95rem;
   border-radius: 8px !important;
@@ -104,13 +110,12 @@
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  position: absolute;
-  left: calc(50% + 5.5cm);
-  transform: translateX(-50%);
+  position: relative;
+  flex-wrap: wrap;
 }
 
 .nav-link {
@@ -198,20 +203,20 @@ body, html {
 
 /* Main Content Layout */
 .main-content {
-  margin-top: 40px !important;
+  margin-top: 20px !important;
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 24px;
+  padding: 0 1rem 24px;
 }
 
 .content-wrapper {
   width: 100%;
   max-width: 2000px;
   display: flex;
-  padding: 24px;
-  gap: 32px;
-  margin-top: 30px;
+  padding: 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /* Video Section */
@@ -536,75 +541,75 @@ body, html {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-  .main-content {
-    margin-top: 45px !important;
-  }
-  
-  .content-wrapper {
-    margin-top: 35px;
-  }
-
-  .video-section {
-    max-width: 100%;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-}
-
 @media (max-width: 992px) {
-  .main-content {
-    margin-top: 50px !important;
-  }
-  
-  .content-wrapper {
-    margin-top: 40px;
+  .navbar-content {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .video-section {
-    max-width: 100%;
-  }
-
-  .sidebar {
+  .navbar-left {
     width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .search-form {
+    width: 100%;
+    max-width: none;
   }
 }
 
 @media (max-width: 768px) {
-  .main-content {
-    margin-top: 55px !important;
-  }
-  
-  .content-wrapper {
-    margin-top: 45px;
+  .navbar {
+    padding: 0.5rem;
   }
 
-  .video-section {
-    max-width: 100%;
+  .navbar-nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .sidebar {
-    width: 100%;
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 28px;
   }
 }
 
 @media (max-width: 576px) {
-  .main-content {
-    margin-top: 60px !important;
-  }
-  
-  .content-wrapper {
-    margin-top: 50px;
+  .navbar-content {
+    gap: 0.75rem;
   }
 
-  .video-section {
-    max-width: 100%;
+  .navbar-nav {
+    gap: 0.75rem;
   }
 
-  .sidebar {
-    width: 100%;
+  .search-form .btn {
+    padding: 0 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 24px;
   }
 }
 
@@ -698,7 +703,7 @@ body, html {
 
 /* About Page Styles */
 .about-page {
-  padding-top: 60px !important;
+  padding-top: 8px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
 }
@@ -785,7 +790,7 @@ body, html {
 
 /* Resources Page Styles */
 .resources-page {
-  padding-top: 60px !important;
+  padding-top: 8px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
   position: relative;
@@ -884,28 +889,28 @@ body, html {
 @media (max-width: 1200px) {
   .about-page,
   .resources-page {
-    padding-top: 65px !important;
+    padding-top: 20px !important;
   }
 }
 
 @media (max-width: 992px) {
   .about-page,
   .resources-page {
-    padding-top: 70px !important;
+    padding-top: 25px !important;
   }
 }
 
 @media (max-width: 768px) {
   .about-page,
   .resources-page {
-    padding-top: 75px !important;
+    padding-top: 30px !important;
   }
 }
 
 @media (max-width: 576px) {
   .about-page,
   .resources-page {
-    padding-top: 80px !important;
+    padding-top: 35px !important;
   }
 }
 
@@ -1205,7 +1210,7 @@ textarea:focus {
 
 /* Contact Page Styles */
 .contact-page {
-  padding-top: 60px !important;
+  padding-top: 8px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
 }
@@ -1334,7 +1339,55 @@ textarea:focus {
 
 /* Home Page */
 .home-page {
-  padding-top: 60px !important;
+  padding-top: 8px !important;
   min-height: 100vh;
   background-color: var(--bg-primary);
+}
+
+/* Common styles for all main pages */
+.home-page,
+.about-page,
+.resources-page,
+.contact-page {
+  padding-top: 8px !important;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .main-content {
+    margin-top: 30px !important;
+  }
+
+  .video-section {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 35px !important;
+  }
+
+  .content-wrapper {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    margin-top: 40px !important;
+  }
 }
