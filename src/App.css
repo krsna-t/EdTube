@@ -31,14 +31,12 @@
   width: 100%;
   gap: 1rem;
   position: relative;
-  flex-wrap: wrap;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .navbar-brand {
@@ -66,47 +64,6 @@
   transform: scale(1.1);
 }
 
-.search-form {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  position: relative;
-  flex: 1;
-  min-width: 200px;
-  max-width: 400px;
-}
-
-.search-form .form-control {
-  width: 100%;
-  height: 40px;
-  padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-  border-radius: 8px !important;
-  background-color: var(--input-bg) !important;
-  border: 1px solid var(--border-color) !important;
-  transition: all 0.3s ease;
-}
-
-.search-form .form-control:focus {
-  box-shadow: 0 0 0 2px var(--accent-color-light) !important;
-  border-color: var(--accent-color) !important;
-}
-
-.search-form .btn {
-  height: 42px;
-  padding: 0 1.25rem;
-  font-weight: 600;
-  border-radius: 8px !important;
-  background: linear-gradient(135deg, var(--accent-color) 0%, #2196F3 100%) !important;
-  border: none !important;
-  transition: all 0.3s ease !important;
-}
-
-.search-form .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
-}
-
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -115,7 +72,8 @@
   padding: 0;
   list-style: none;
   position: relative;
-  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: 2rem;
 }
 
 .nav-link {
@@ -229,12 +187,14 @@ body, html {
 
 .video-player {
   width: 100%;
+  max-height: 70vh;
 }
 
 .video-container {
   width: 100%;
   position: relative;
   padding-bottom: 56.25%;
+  max-height: 70vh;
   background: var(--bg-secondary);
   border-radius: 8px;
   overflow: hidden;
@@ -252,7 +212,8 @@ body, html {
 
 .video-placeholder {
   width: 100%;
-  padding-bottom: 56.25%;
+  padding-bottom: 40%;
+  max-height: 70vh;
   background: var(--bg-secondary);
   position: relative;
   display: flex;
@@ -271,7 +232,7 @@ body, html {
   text-align: center;
   width: 80%;
   max-width: 600px;
-  padding: 32px;
+  padding: 2rem;
   background-color: var(--bg-secondary);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -543,74 +504,247 @@ body, html {
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .navbar-content {
-    flex-direction: column;
+    flex-wrap: nowrap !important;
     gap: 1rem;
   }
 
-  .navbar-left {
-    width: 100%;
-    justify-content: space-between;
+  .navbar-nav:not(.mobile-nav .navbar-nav) {
+    display: none;
   }
 
-  .navbar-nav {
-    width: 100%;
-    justify-content: center;
-    gap: 1.5rem;
+  .theme-switcher:not(.mobile-theme-toggle .theme-switcher) {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex !important;
+  }
+
+  .mobile-nav {
+    display: block;
+    top: 60px !important;
   }
 
   .search-form {
+    display: none;
+  }
+
+  .main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .home-page {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .video-section {
+    margin-top: 0 !important;
+  }
+
+  .quote-section {
+    margin-top: 0 !important;
+  }
+
+  .about-page,
+  .resources-page,
+  .contact-page {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .content-wrapper {
+    padding: 0 !important;
+  }
+
+  .video-url-form {
+    margin: 0 !important;
+    padding: 0.1rem !important;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .app-main {
+    margin-top: 10px !important;
+  }
+
+  .video-section {
+    max-width: 100%;
     width: 100%;
-    max-width: none;
+  }
+
+  .video-container,
+  .video-placeholder {
+    padding-bottom: 56.25%;
+    max-height: none;
+  }
+
+  .navbar-nav {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 0.5rem;
+  .main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
-  .navbar-nav {
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  .home-page,
+  .about-page,
+  .resources-page,
+  .contact-page {
+    margin-top: 0 !important;
   }
 
-  .nav-link {
-    font-size: 0.9rem;
-    padding: 0.25rem 0;
+  .app-main {
+    margin-top: 10px !important;
   }
 
-  .navbar-brand {
-    font-size: 1.25rem;
-  }
-
-  .brand-logo {
-    width: 40px;
-    height: 28px;
+  .video-url-form {
+    padding: 0.1rem !important;
   }
 }
 
 @media (max-width: 576px) {
-  .navbar-content {
-    gap: 0.75rem;
+  .main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
-  .navbar-nav {
-    gap: 0.75rem;
+  .home-page,
+  .about-page,
+  .resources-page,
+  .contact-page {
+    margin-top: 0 !important;
   }
 
-  .search-form .btn {
-    padding: 0 1rem;
+  .app-main {
+    margin-top: 10px !important;
   }
 
-  .navbar-brand {
-    font-size: 1.1rem;
+  .video-url-form {
+    padding: 0.1rem !important;
   }
+}
 
-  .brand-logo {
-    width: 36px;
-    height: 24px;
-  }
+/* Hamburger Menu Button */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.hamburger-menu span {
+  display: block !important;
+  width: 30px !important;
+  height: 3px !important;
+  background-color: var(--text-primary) !important;
+  border-radius: 3px !important;
+  transition: all 0.3s ease-in-out !important;
+  margin: 2px 0;
+}
+
+[data-theme="dark"] .hamburger-menu span {
+  background-color: #ffffff !important;
+}
+
+.hamburger-menu.open span:first-child {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.open span:last-child {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--bg-secondary);
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  z-index: 1001;
+  overflow-y: auto;
+  padding-top: 60px;
+}
+
+.mobile-nav.open {
+  right: 0;
+  display: block !important;
+}
+
+.mobile-nav .navbar-nav {
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  display: flex !important;
+}
+
+.mobile-nav .nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  text-align: left;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav .nav-link:hover,
+.mobile-nav .nav-link.active {
+  background-color: var(--hover-bg);
+}
+
+.mobile-theme-toggle {
+  margin: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.mobile-theme-toggle .theme-switcher {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--hover-bg);
+  border: 1px solid var(--border-color);
+}
+
+.mobile-theme-toggle .theme-text {
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 0;
 }
 
 /* Theme Variables */
@@ -1389,5 +1523,244 @@ textarea:focus {
 @media (max-width: 576px) {
   .main-content {
     margin-top: 40px !important;
+  }
+}
+
+/* Main Search Form - Only visible on mobile */
+.main-search-form {
+  display: none; /* Hidden by default for desktop */
+  width: 100%;
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.main-search-form .search-form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.main-search-form .form-control {
+  flex: 1;
+  height: 48px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px !important;
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+.main-search-form .btn {
+  height: 48px;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #2196F3 100%) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .navbar-content {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar-nav {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .theme-switcher {
+    order: 1;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+  }
+
+  .main-content {
+    margin-top: 100px !important;
+  }
+
+  /* Show search form on mobile */
+  .main-search-form {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-nav {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    margin-top: 110px !important;
+  }
+}
+
+/* Video URL Form - Only visible on mobile */
+.video-url-form {
+  display: none; /* Hidden by default for desktop */
+  width: 100%;
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.video-url-form .url-form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.video-url-form .form-control {
+  flex: 1;
+  height: 48px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px !important;
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+.video-url-form .btn {
+  height: 48px;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #2196F3 100%) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+@media (max-width: 992px) {
+  /* Show video URL form on mobile */
+  .video-url-form {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Search Form in Navbar */
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.search-form .form-control {
+  width: 100%;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 8px !important;
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+.search-form .btn {
+  height: 42px;
+  padding: 0 1.25rem;
+  font-weight: 600;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #2196F3 100%) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Video URL Form - Only visible on mobile */
+.video-url-form {
+  display: none; /* Hidden by default for desktop */
+  width: 100%;
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.video-url-form .url-form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.video-url-form .form-control {
+  flex: 1;
+  height: 48px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px !important;
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+.video-url-form .btn {
+  height: 48px;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #2196F3 100%) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+@media (max-width: 992px) {
+  .navbar-content {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar-nav {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .theme-switcher {
+    order: 1;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+  }
+
+  .main-content {
+    margin-top: 100px !important;
+  }
+
+  /* Hide navbar search form and show video URL form on mobile */
+  .navbar .search-form {
+    display: none !important;
+  }
+
+  .video-url-form {
+    display: block;
+    margin-bottom: 1.5rem;
   }
 }

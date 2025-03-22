@@ -197,43 +197,72 @@ const Home = () => {
     };
   }, []);
 
+  const handleVideoSubmit = (e) => {
+    e.preventDefault();
+    const videoUrl = e.target.elements.videoUrl.value;
+    
+    try {
+      const url = new URL(videoUrl);
+      let videoId = '';
+
+      if (url.hostname === 'youtu.be') {
+        videoId = url.pathname.slice(1);
+      } else if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
+        videoId = url.searchParams.get('v');
+      }
+
+      if (videoId) {
+        setEmbedUrl(`https://www.youtube.com/embed/${videoId}`);
+        e.target.elements.videoUrl.value = '';
+      }
+    } catch (error) {
+      console.error('Invalid URL');
+    }
+  };
+
   return (
-    <div className="app-wrapper">
-      {/* Main Content */}
-      <main className="main-content" role="main">
+    <div className="home-page">
+      <div className="main-content">
         <div className="content-wrapper">
-          {/* Video Section */}
-          <section className="video-section" aria-label="Video content">
-            <div className="video-player">
-              {embedUrl ? (
-                <div className="video-container">
-                  <iframe
-                    src={embedUrl}
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
+          <div className="video-section">
+            {/* Video URL Form - Only visible on mobile */}
+            <div className="video-url-form">
+              <form onSubmit={handleVideoSubmit}>
+                <div className="url-form">
+                  <input
+                    type="url"
+                    name="videoUrl"
+                    className="form-control"
+                    placeholder="Enter the URL of the video"
+                    aria-label="Video URL"
+                  />
+                  <button type="submit" className="btn btn-primary">
+                    Load video
+                  </button>
                 </div>
+              </form>
+            </div>
+
+            {/* Video Player or Quote */}
+            <div className="video-container">
+              {embedUrl ? (
+                <iframe
+                  src={embedUrl}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               ) : (
                 <div className="video-placeholder">
                   <div className="quote-container">
-                    <div className="quote-icon">❝</div>
+                    <div className="quote-icon">"</div>
                     <p className="quote-text">{quote.text}</p>
-                    <p className="quote-author">― {quote.author}</p>
-                    <button 
-                      className="btn btn-outline-secondary mt-3"
-                      onClick={() => {
-                        const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-                        setQuote(newQuote);
-                      }}
-                    >
-                      New Quote
-                    </button>
+                    <p className="quote-author">— {quote.author}</p>
                   </div>
                 </div>
               )}
             </div>
-          </section>
+          </div>
 
           {/* Sidebar */}
           <aside className="sidebar">
@@ -376,7 +405,7 @@ const Home = () => {
             </div>
           </aside>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

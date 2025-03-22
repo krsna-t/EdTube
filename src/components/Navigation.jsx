@@ -5,6 +5,15 @@ const Navigation = ({ theme, toggleTheme }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [videoUrl, setVideoUrl] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   // Clear video URL when location changes
   useEffect(() => {
@@ -41,7 +50,7 @@ const Navigation = ({ theme, toggleTheme }) => {
       <div className="container">
         <div className="navbar-content">
           <div className="navbar-left">
-            <Link className="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/" onClick={closeMenu}>
               <svg 
                 className="brand-logo"
                 viewBox="0 0 160 100"
@@ -110,6 +119,7 @@ const Navigation = ({ theme, toggleTheme }) => {
             </form>
           </div>
           
+          {/* Desktop Navigation */}
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link 
@@ -145,6 +155,7 @@ const Navigation = ({ theme, toggleTheme }) => {
             </li>
           </ul>
 
+          {/* Desktop Theme Switcher */}
           <div className="navbar-right">
             <div className="theme-switcher">
               <button
@@ -164,6 +175,76 @@ const Navigation = ({ theme, toggleTheme }) => {
                 )}
               </button>
             </div>
+          </div>
+
+          {/* Hamburger Menu Button */}
+          <button 
+            className={`hamburger-menu ${isOpen ? 'open' : ''}`}
+            onClick={toggleMenu} 
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`mobile-nav ${isOpen ? 'open' : ''}`}>
+          <ul className="navbar-nav">
+            <li>
+              <Link 
+                to="/" 
+                className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} 
+                onClick={closeMenu}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/resources" 
+                className={`nav-link ${location.pathname === '/resources' ? 'active' : ''}`} 
+                onClick={closeMenu}
+              >
+                Resources
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/about" 
+                className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} 
+                onClick={closeMenu}
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/contact" 
+                className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} 
+                onClick={closeMenu}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+          
+          {/* Theme Switcher for Mobile */}
+          <div className="mobile-theme-toggle">
+            <button
+              className="theme-switcher"
+              onClick={() => {
+                toggleTheme();
+                closeMenu();
+              }}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              <span className="theme-text">
+                Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+              </span>
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
           </div>
         </div>
       </div>
